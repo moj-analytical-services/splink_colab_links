@@ -1,13 +1,12 @@
 import json
 import os
+from datetime import datetime
 
 
 def add_install_cell_to_notebook(notebook_path, output_path):
-    # Load the notebook as JSON
     with open(notebook_path, "r", encoding="utf-8") as f:
         notebook = json.load(f)
 
-    # Define the new cell
     new_cell = {
         "cell_type": "code",
         "execution_count": None,
@@ -16,10 +15,8 @@ def add_install_cell_to_notebook(notebook_path, output_path):
         "source": ["!pip install splink"],
     }
 
-    # Insert the new cell at the beginning of the notebook
     notebook["cells"].insert(0, new_cell)
 
-    # Save the modified notebook
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(notebook, f, indent=4)
@@ -43,7 +40,6 @@ def process_directory(directory, base_directory):
                 output_path = notebook_path.replace(base_directory + "/", "")
                 add_install_cell_to_notebook(notebook_path, output_path)
 
-                # Generate and store the Colab link
                 colab_link = generate_colab_link(output_path)
                 link_text = (
                     os.path.splitext(os.path.basename(file))[0]
@@ -52,8 +48,9 @@ def process_directory(directory, base_directory):
                 )
                 colab_links[relative_path].append(f"[{link_text}]({colab_link})")
 
-    # Write the links to links.md
     with open("links.md", "w", encoding="utf-8") as f:
+        current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        f.write(f"Last updated: {current_datetime}\n\n")
         for directory, links in colab_links.items():
             if links:
                 header_level = directory.count(os.sep) + 2

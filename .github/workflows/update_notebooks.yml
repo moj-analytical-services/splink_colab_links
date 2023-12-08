@@ -1,0 +1,34 @@
+name: Update Notebooks
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs at 00:00 UTC every day
+
+jobs:
+  update-notebooks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout splink_colab_links repo
+        uses: actions/checkout@v2
+        with:
+          ref: "main"
+
+      - name: Clone splink repository
+        run: git clone http://github.com/moj-analytical-services/splink
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Run add_pip_install.py script
+        run: python splink/add_pip_install.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add docs/ links.md
+          git commit -m "Update notebooks and links"
+          git push
