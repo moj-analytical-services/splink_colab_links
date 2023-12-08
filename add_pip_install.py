@@ -7,12 +7,16 @@ def add_install_cell_to_notebook(notebook_path, output_path):
     with open(notebook_path, "r", encoding="utf-8") as f:
         notebook = json.load(f)
 
+    new_cell_content = ["!pip install splink"]
+    if "spark" in notebook_path:
+        new_cell_content.append("!pip install spark")
+
     new_cell = {
         "cell_type": "code",
         "execution_count": None,
         "metadata": {},
         "outputs": [],
-        "source": ["!pip install splink"],
+        "source": new_cell_content,
     }
 
     notebook["cells"].insert(0, new_cell)
@@ -31,7 +35,11 @@ def process_directory(directory, base_directory):
     colab_links = {}
     for root, dirs, files in os.walk(directory):
         relative_path = os.path.relpath(root, directory)
-        ipynb_files = [f for f in files if f.endswith(".ipynb")]
+        ipynb_files = [
+            f
+            for f in files
+            if f.endswith(".ipynb") and "athena" not in relative_path.lower()
+        ]
 
         if ipynb_files:
             colab_links[relative_path] = []
