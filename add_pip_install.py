@@ -7,9 +7,9 @@ def add_install_cell_to_notebook(notebook_path, output_path):
     with open(notebook_path, "r", encoding="utf-8") as f:
         notebook = json.load(f)
 
-    new_cell_content = ["!pip install splink"]
+    new_cell_content = ["!pip install splink\n"]
     if "spark" in notebook_path:
-        new_cell_content.append("!pip install spark")
+        new_cell_content.append("!pip install pyspark\n")
 
     new_cell = {
         "cell_type": "code",
