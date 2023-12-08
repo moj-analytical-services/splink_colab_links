@@ -1,4 +1,4 @@
-Last updated: 2023-12-08 09:57:31
+Last updated: 2023-12-08 10:00:13
 
 ## tutorials
 
@@ -48,6 +48,3 @@ Last updated: 2023-12-08 09:57:31
 
 [Deduplicate 50k synthetic](https://colab.research.google.com/github/moj-analytical-services/splink_colab_links/blob/main/docs/demos/examples/sqlite/deduplicate_50k_synthetic.ipynb)
 
-### examples/athena
-
-[Deduplicate 50k synthetic](https://colab.research.google.com/github/moj-analytical-services/splink_colab_links/blob/main/docs/demos/examples/athena/deduplicate_50k_synthetic.ipynb)
