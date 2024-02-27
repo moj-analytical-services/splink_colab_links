@@ -1,12 +1,10 @@
-Last updated: 2024-02-26 00:01:55
+Last updated: 2024-02-27 00:02:05
 
 ## tutorials
 
 [01 prerequisites](https://colab.research.google.com/github/moj-analytical-services/splink_colab_links/blob/main/docs/demos/tutorials/01_Prerequisites.ipynb)
 
 [06 visualising predictions](https://colab.research.google.com/github/moj-analytical-services/splink_colab_links/blob/main/docs/demos/tutorials/06_Visualising_predictions.ipynb)
-
-[07 quality assurance](https://colab.research.google.com/github/moj-analytical-services/splink_colab_links/blob/main/docs/demos/tutorials/07_Quality_assurance.ipynb)
 
 [05 predicting results](https://colab.research.google.com/github/moj-analytical-services/splink_colab_links/blob/main/docs/demos/tutorials/05_Predicting_results.ipynb)
 
@@ -17,6 +15,8 @@ Last updated: 2024-02-26 00:01:55
 [00 tutorial introduction](https://colab.research.google.com/github/moj-analytical-services/splink_colab_links/blob/main/docs/demos/tutorials/00_Tutorial_Introduction.ipynb)
 
 [03 blocking](https://colab.research.google.com/github/moj-analytical-services/splink_colab_links/blob/main/docs/demos/tutorials/03_Blocking.ipynb)
+
+[07 evaluation](https://colab.research.google.com/github/moj-analytical-services/splink_colab_links/blob/main/docs/demos/tutorials/07_Evaluation.ipynb)
 
 ### examples/spark
 
